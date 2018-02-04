@@ -1,11 +1,11 @@
-import 'acorn-jsx';
 import fs from 'fs';
 import { resolve, relative, dirname, basename, extname } from 'path';
 import chalk from 'chalk';
 import { map, series } from 'asyncro';
-import promisify from 'es6-promisify';
+import { promisify } from 'es6-promisify';
 import glob from 'glob';
 import autoprefixer from 'autoprefixer';
+import acornJsx from 'acorn-jsx/inject';
 import { rollup, watch } from 'rollup';
 import nodent from 'rollup-plugin-nodent';
 import commonjs from 'rollup-plugin-commonjs';
@@ -140,7 +140,8 @@ function createConfig(options, entry, format, writeMeta) {
 
 	let external = ['dns', 'fs', 'path', 'url'].concat(
 		Object.keys(pkg.peerDependencies || {}),
-		options.entries.filter( e => e!==entry )
+		options.entries.filter( e => e!==entry ),
+		String(options.external).split(/\s*,\s*/).filter(Boolean)
 	);
 
 	let aliases = {};
@@ -156,7 +157,7 @@ function createConfig(options, entry, format, writeMeta) {
 	}
 	else if (options.external==='all' || options.inline==='none') {
 		useNodeResolve = false;
-		external = external.concat(Object.keys(pkg.dependencies));
+		external = external.concat(Object.keys(pkg.dependencies || {}));
 	}
 
 	let globals = external.reduce( (globals, name) => {
@@ -200,14 +201,28 @@ function createConfig(options, entry, format, writeMeta) {
 
 	const useTypescript = extname(entry)==='.ts';
 
+	console.log(acornJsx);
+
 	let config = {
 		inputOptions: {
+			acorn: {
+				plugins: {
+					jsx: true
+				}
+			},
+			acornInjectPlugins: [
+				acornJsx
+			],
 			input: exportType ? resolve(__dirname, '../src/lib/__entry__.js') : entry,
 			external,
 			plugins: [].concat(
-				alias({
+				alias(Object.assign({
 					__microbundle_entry__: entry
-				}),
+				}, options.pkg.aliases || {}, String(options.aliases || '').split(/\s*,\s*/).reduce( (acc, key) => {
+					let p = key.split(':');
+					acc[p[0]] = p.slice(1).join(':');
+					return acc;
+				}, {})) ),
 				postcss({
 					plugins: [
 						autoprefixer()
@@ -226,6 +241,9 @@ function createConfig(options, entry, format, writeMeta) {
 						forOf: false
 					},
 					parser: {
+						onParserInstallation(acorn) {
+							acornJsx(acorn);
+						},
 						plugins: {
 							jsx: true
 						}
