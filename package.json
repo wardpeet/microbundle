@@ -45,7 +45,7 @@
   "dependencies": {
     "acorn-jsx": "^4.1.1",
     "asyncro": "^3.0.0",
-    "autoprefixer": "^9.0.0",
+    "autoprefixer": "9.1.3",
     "babel-polyfill": "^6.26.0",
     "brotli-size": "^0.0.3",
     "camelcase": "^5.0.0",
