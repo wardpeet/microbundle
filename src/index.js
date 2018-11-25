@@ -11,6 +11,7 @@ import babel from 'rollup-plugin-babel';
 import nodeResolve from 'rollup-plugin-node-resolve';
 import buble from 'rollup-plugin-buble';
 import { terser } from 'rollup-plugin-terser';
+import closureCompiler from '@ampproject/rollup-plugin-closure-compiler';
 import postcss from 'rollup-plugin-postcss';
 import alias from 'rollup-plugin-strict-alias';
 import gzipSize from 'gzip-size';
@@ -417,6 +418,7 @@ function createConfig(options, entry, format, writeMeta) {
 					// 	[`var ${rollupName} =`]: 'export default'
 					// }),
 					options.compress !== false && [
+						closureCompiler(),
 						terser({
 							sourcemap: true,
 							output: { comments: false },
