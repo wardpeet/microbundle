@@ -118,6 +118,63 @@ Build \\"basicLibTsx\\" to dist:
 `;
 
 exports[`fixtures basic-with-cwd 1`] = `
+"Used script: microbundle
+
+Directory tree:
+
+basic
+  dist
+    basic-lib.js
+    basic-lib.js.map
+    basic-lib.mjs
+    basic-lib.mjs.map
+    basic-lib.umd.js
+    basic-lib.umd.js.map
+  package.json
+  src
+    index.js
+    two.js
+
+
+Build \\"basicLib\\" to dist:
+213 B: basic-lib.js.gz
+159 B: basic-lib.js.br
+205 B: basic-lib.mjs.gz
+144 B: basic-lib.mjs.br
+287 B: basic-lib.umd.js.gz
+225 B: basic-lib.umd.js.br"
+`;
+
+exports[`fixtures basic-with-cwd 2`] = `
+"Used script: microbundle
+
+Directory tree:
+
+basic-css
+  dist
+    basic-css.css
+    basic-css.js
+    basic-css.js.map
+    basic-css.mjs
+    basic-css.mjs.map
+    basic-css.umd.js
+    basic-css.umd.js.map
+  package.json
+  src
+    index.js
+    two.css
+
+
+Build \\"basicCss\\" to dist:
+116 B: basic-css.js.gz
+63 B: basic-css.js.br
+106 B: basic-css.mjs.gz
+56 B: basic-css.mjs.br
+197 B: basic-css.umd.js.gz
+138 B: basic-css.umd.js.br"
+`;
+
+exports[`fixtures basic-with-cwd 3`] = `
 "Used script: microbundle --cwd ./basic
 
 Directory tree:
@@ -139,12 +196,12 @@ basic-with-cwd
 
 
 Build \\"basic\\" to dist:
-202 B: basic.js.gz
-145 B: basic.js.br
-203 B: basic.mjs.gz
-145 B: basic.mjs.br
-276 B: basic.umd.js.gz
-208 B: basic.umd.js.br"
+213 B: basic.js.gz
+159 B: basic.js.br
+205 B: basic.mjs.gz
+144 B: basic.mjs.br
+284 B: basic.umd.js.gz
+220 B: basic.umd.js.br"
 `;
 
 exports[`fixtures class-decorators-ts 1`] = `
@@ -177,6 +234,36 @@ Build \\"classDecoratorsTs\\" to dist:
 `;
 
 exports[`fixtures class-properties 1`] = `
+"Used script: microbundle --cwd ./basic
+
+Directory tree:
+
+basic-with-cwd
+  basic
+    dist
+      basic.js
+      basic.js.map
+      basic.mjs
+      basic.mjs.map
+      basic.umd.js
+      basic.umd.js.map
+    package.json
+    src
+      index.js
+      two.js
+  package.json
+
+
+Build \\"basic\\" to dist:
+213 B: basic.js.gz
+159 B: basic.js.br
+205 B: basic.mjs.gz
+144 B: basic.mjs.br
+284 B: basic.umd.js.gz
+220 B: basic.umd.js.br"
+`;
+
+exports[`fixtures custom-source 1`] = `
 "Used script: microbundle
 
 Directory tree:
@@ -195,15 +282,15 @@ class-properties
 
 
 Build \\"classProperties\\" to dist:
-93 B: class-properties.js.gz
-79 B: class-properties.js.br
-89 B: class-properties.mjs.gz
-79 B: class-properties.mjs.br
-191 B: class-properties.umd.js.gz
-145 B: class-properties.umd.js.br"
+104 B: class-properties.js.gz
+86 B: class-properties.js.br
+92 B: class-properties.mjs.gz
+83 B: class-properties.mjs.br
+197 B: class-properties.umd.js.gz
+162 B: class-properties.umd.js.br"
 `;
 
-exports[`fixtures custom-source 1`] = `
+exports[`fixtures custom-source-with-cwd 1`] = `
 "Used script: microbundle
 
 Directory tree:
@@ -223,42 +310,12 @@ custom-source
 
 
 Build \\"customSource\\" to dist:
-202 B: custom-source.js.gz
-145 B: custom-source.js.br
-203 B: custom-source.mjs.gz
-145 B: custom-source.mjs.br
-281 B: custom-source.umd.js.gz
-209 B: custom-source.umd.js.br"
-`;
-
-exports[`fixtures custom-source-with-cwd 1`] = `
-"Used script: microbundle --cwd ./custom-source
-
-Directory tree:
-
-custom-source-with-cwd
-  custom-source
-    dist
-      custom-src.js
-      custom-src.js.map
-      custom-src.mjs
-      custom-src.mjs.map
-      custom-src.umd.js
-      custom-src.umd.js.map
-    package.json
-    src
-      custom-source.js
-      two.js
-  package.json
-
-
-Build \\"customSrc\\" to dist:
-202 B: custom-src.js.gz
-145 B: custom-src.js.br
-203 B: custom-src.mjs.gz
-145 B: custom-src.mjs.br
-279 B: custom-src.umd.js.gz
-212 B: custom-src.umd.js.br"
+213 B: custom-source.js.gz
+159 B: custom-source.js.br
+205 B: custom-source.mjs.gz
+144 B: custom-source.mjs.br
+289 B: custom-source.umd.js.gz
+221 B: custom-source.umd.js.br"
 `;
 
 exports[`fixtures esnext-ts 1`] = `
@@ -291,6 +348,36 @@ Build \\"esnextTs\\" to dist:
 `;
 
 exports[`fixtures jsx 1`] = `
+"Used script: microbundle --cwd ./custom-source
+
+Directory tree:
+
+custom-source-with-cwd
+  custom-source
+    dist
+      custom-src.js
+      custom-src.js.map
+      custom-src.mjs
+      custom-src.mjs.map
+      custom-src.umd.js
+      custom-src.umd.js.map
+    package.json
+    src
+      custom-source.js
+      two.js
+  package.json
+
+
+Build \\"customSrc\\" to dist:
+213 B: custom-src.js.gz
+159 B: custom-src.js.br
+205 B: custom-src.mjs.gz
+144 B: custom-src.mjs.br
+287 B: custom-src.umd.js.gz
+224 B: custom-src.umd.js.br"
+`;
+
+exports[`fixtures jsx 2`] = `
 "Used script: microbundle
 
 Directory tree:
@@ -308,12 +395,12 @@ jsx
 
 
 Build \\"jsx\\" to dist:
-211 B: jsx.js.gz
-168 B: jsx.js.br
-212 B: jsx.mjs.gz
-170 B: jsx.mjs.br
-283 B: jsx.umd.js.gz
-230 B: jsx.umd.js.br"
+218 B: jsx.js.gz
+185 B: jsx.js.br
+211 B: jsx.mjs.gz
+190 B: jsx.mjs.br
+290 B: jsx.umd.js.gz
+243 B: jsx.umd.js.br"
 `;
 
 exports[`fixtures name-custom-amd 1`] = `
@@ -336,12 +423,12 @@ name-custom-amd
 
 
 Build \\"customNameAmd\\" to dist:
-202 B: name-custom-amd.js.gz
-145 B: name-custom-amd.js.br
-203 B: name-custom-amd.mjs.gz
-145 B: name-custom-amd.mjs.br
-283 B: name-custom-amd.umd.js.gz
-214 B: name-custom-amd.umd.js.br"
+213 B: name-custom-amd.js.gz
+159 B: name-custom-amd.js.br
+205 B: name-custom-amd.mjs.gz
+144 B: name-custom-amd.mjs.br
+291 B: name-custom-amd.umd.js.gz
+226 B: name-custom-amd.umd.js.br"
 `;
 
 exports[`fixtures name-custom-cli 1`] = `
@@ -364,12 +451,12 @@ name-custom-cli
 
 
 Build \\"nameCustomCli\\" to dist:
-202 B: name-custom.js.gz
-145 B: name-custom.js.br
-203 B: name-custom.mjs.gz
-145 B: name-custom.mjs.br
-283 B: name-custom.umd.js.gz
-215 B: name-custom.umd.js.br"
+213 B: name-custom.js.gz
+159 B: name-custom.js.br
+205 B: name-custom.mjs.gz
+144 B: name-custom.mjs.br
+291 B: name-custom.umd.js.gz
+227 B: name-custom.umd.js.br"
 `;
 
 exports[`fixtures no-pkg 1`] = `
@@ -391,12 +478,12 @@ no-pkg
 
 
 Build \\"noPkg\\" to dist:
-202 B: no-pkg.js.gz
-145 B: no-pkg.js.br
-203 B: no-pkg.mjs.gz
-145 B: no-pkg.mjs.br
-276 B: no-pkg.umd.js.gz
-217 B: no-pkg.umd.js.br"
+213 B: no-pkg.js.gz
+159 B: no-pkg.js.br
+205 B: no-pkg.mjs.gz
+144 B: no-pkg.mjs.br
+284 B: no-pkg.umd.js.gz
+228 B: no-pkg.umd.js.br"
 `;
 
 exports[`fixtures no-pkg-name 1`] = `
@@ -419,12 +506,12 @@ no-pkg-name
 
 
 Build \\"noPkgName\\" to dist:
-202 B: no-pkg-name.js.gz
-145 B: no-pkg-name.js.br
-203 B: no-pkg-name.mjs.gz
-145 B: no-pkg-name.mjs.br
-280 B: no-pkg-name.umd.js.gz
-216 B: no-pkg-name.umd.js.br"
+213 B: no-pkg-name.js.gz
+159 B: no-pkg-name.js.br
+205 B: no-pkg-name.mjs.gz
+144 B: no-pkg-name.mjs.br
+288 B: no-pkg-name.umd.js.gz
+230 B: no-pkg-name.umd.js.br"
 `;
 
 exports[`fixtures pretty 1`] = `
@@ -446,8 +533,8 @@ pretty
 
 
 Build \\"pretty\\" to dist:
-6.33 kB: pretty.js.gz
-5.19 kB: pretty.js.br
+6.34 kB: pretty.js.gz
+5.2 kB: pretty.js.br
 6.34 kB: pretty.mjs.gz
 5.21 kB: pretty.mjs.br
 6.46 kB: pretty.umd.js.gz
